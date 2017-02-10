@@ -7,13 +7,39 @@
 
 <ion-content>
   <ion-fab right bottom>
-    <button ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="primary" (click)="add()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
-  <ion-list no-lines>
-    <tweet *ngFor="let tweet of tweets | async" avatar="http://placehold.it/50" id="1" name="Rajkiran" handle="@panuganti" tweetText="{{tweet.tweetText}}"
-      likeCount=12 retweetCount=4 chatCount=3 (like)="like($event)" (retweet)="retweet($event)" (conversation)="conversation($event)"
-      (reply)="reply($event)"> </tweet>
+  <ion-segment [(ngModel)]="segment">
+    <ion-segment-button value="feed">
+      Feed
+    </ion-segment-button>
+    <ion-segment-button value="watchlist">
+      WATCHLIST
+    </ion-segment-button>
+    <ion-segment-button value="trending">
+      TRENDING
+    </ion-segment-button>
+  </ion-segment>
+
+<div [ngSwitch]="segment">
+  <ion-list *ngSwitchCase="feed" no-lines> 
+    <tweet *ngFor="let tweet of tweets | async" avatar="http://placehold.it/50" id="1" 
+        name="Rajkiran" handle="@panuganti" tweetText="{{tweet.tweetText}}" likeCount=12 
+        retweetCount=4 chatCount=3 (like)="like($event)" (retweet)="retweet($event)" (conversation)="conversation($event)" 
+        (reply)="reply($event)"> 
+    </tweet>
   </ion-list>
 
+  <ion-list *ngSwitchCase="watchlist">
+    <celebrity *ngFor="let celeb of celebs | async" celebImg="" celebName="" id="" 
+        heartCount="{{getFollowersCount(af.database.object('/Celebs/')) | async}}" 
+        (watch)="addToWatchlist($event)"> </celebrity> 
+  </ion-list>
+
+  <ion-list *ngSwitchCase="trending">
+    <celebrity *ngFor="let celeb of celebs | async" celebImg="{{celeb.img}}" celebName="{{celeb.name}}" id="{{celeb.id}}" 
+        heartCount="{{getFollowersCount(af.database.object('/Celebs/')) | async}}" (watch)="addToWatchlist($event)"> </celebrity>
+  </ion-list>
+</div>
 </ion-content>

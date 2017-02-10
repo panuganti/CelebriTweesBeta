@@ -3,9 +3,9 @@ import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { HomePage } from '../pages/home/home';
-import { Entity } from '../library/tweet';
+//import { Entity } from '../library/tweet';
 import { LoginPage } from '../pages/login/login';
-import { AngularFire, AuthMethods } from 'angularfire2';
+import { AngularFire } from 'angularfire2';
 
 @Component({
   templateUrl: 'app.html'

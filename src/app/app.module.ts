@@ -8,7 +8,9 @@ import { FeedHeaderComponent } from '../components/feed-header/feed-header';
 import { ReactionComponent } from '../components/reaction/reaction';
 import { TweetComponent } from '../components/tweet/tweet';
 //import { Tweet } from '../library/tweet';
+import { CelebrityComponent } from '../components/celebrity/celebrity';
 import { TwitterTextComponent } from '../components/twitter-text/twitter-text';
+import { CelebrityReactionComponent } from '../components/celebrity-reaction/celebrity-reaction';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyA59EnGk7BycwQjlCv5nYb4bZqLKjaZK9w",
@@ -26,7 +28,9 @@ export const firebaseConfig = {
     FeedHeaderComponent,
     ReactionComponent,
     TweetComponent,
-    TwitterTextComponent
+    TwitterTextComponent,
+    CelebrityReactionComponent,
+    CelebrityComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -40,7 +44,9 @@ export const firebaseConfig = {
     FeedHeaderComponent,
     ReactionComponent,
     TweetComponent,
-    TwitterTextComponent
+    TwitterTextComponent,
+    CelebrityReactionComponent,
+    CelebrityComponent
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
