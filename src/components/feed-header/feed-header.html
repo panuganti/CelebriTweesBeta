@@ -1,0 +1,34 @@
+<ion-grid>
+  <ion-row>
+    <ion-col width-20>
+      <img class="max-height-50 max-width-50" src="{{img}}">
+    </ion-col>
+    <ion-col>
+    </ion-col>
+    <ion-col>
+      <button ion-button (click)="streamsClicked($event)" clear>
+            <ion-icon name="md-list" color="light"></ion-icon>   
+        </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button (click)="notificationsClicked($event)" clear>
+            <ion-icon name="notifications" color="light"></ion-icon>   
+        </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button (click)="directMessagesClicked($event)" clear>
+            <ion-icon name="mail" color="light"></ion-icon>   
+        </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button (click)="searchClicked($event)" clear>
+            <ion-icon name="search" color="light"></ion-icon>   
+        </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button (click)="popoverClicked($event)" clear>
+            <ion-icon name="more" color="light"></ion-icon>   
+        </button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

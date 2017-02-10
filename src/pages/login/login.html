@@ -1,0 +1,21 @@
+<video autoplay poster="assets/img/polina.jpg" id="bgvid" loop>
+  <!-- WCAG general accessibility recommendation is that media such as background video play through only once. 
+    Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+  <!--  <source src="assets/img/polina.webm" type="video/webm"> -->
+  <source src="assets/img/bkgnd.mp4" type="video/mp4">
+</video>
+
+<!-- Look for better solution than using a spacer -->
+<div class="spacer" style="width: auto; height: 150px;"></div>
+
+<div id="polina">
+  <button ion-button icon-left block color="danger" (click)="loginTwitter()">
+      <ion-icon name="logo-twitter"></ion-icon>
+        Twitter
+    </button>
+<div class="spacer" style="width: auto; height: 50px;"></div>
+  <button ion-button icon-left block (click)="loginFb()">
+      <ion-icon name="logo-facebook"></ion-icon>
+        Facebook
+    </button>
+</div>
