@@ -1,0 +1,4 @@
+<span *ngFor='let term of text.split(" ")'>
+    <a *ngIf="term.startsWith('#')" (click)="emitClick(term)"> {{term}} </a>
+    <span *ngIf="!term.startsWith('#')"> {{term}} </span> 
+</span>
