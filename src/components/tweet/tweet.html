@@ -1,0 +1,19 @@
+<ion-card>
+  <ion-item>
+    <ion-avatar item-left>
+      <img src="{{avatar}}">
+    </ion-avatar>
+    <h3>{{name}}</h3>
+    <p><small>{{handle}}</small></p>
+    <hr>
+  </ion-item>
+
+  <img *ngIf="img" src="{{img}}">
+
+  <ion-card-content>
+    <p><twitter-text text="{{tweetText}}" (hashtagClick)="emitClick($event)"></twitter-text></p> 
+    <reaction likeCount="{{likeCount}}" retweetCount="{{retweetCount}}" chatCount="{{chatCount}}" time="{{time}}"
+              (like)="emitLike()" (retweet)="emitRetweet()" (openChat)="emitChat()" (reply)="emitReply()"> </reaction>
+
+  </ion-card-content>
+</ion-card>
