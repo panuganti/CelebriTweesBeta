@@ -14,23 +14,27 @@ export class FeedHeaderComponent {
 
   constructor() {}
 
-  streamsClicked(ev) {
-    this.streamsClick.next(ev);
+  streamsClicked() {
+    this.streamsClick.emit();
   }
 
-  notificationsClicked(ev) {
-    this.notificationsClick.next(ev);
+  notificationsClicked() {
+    console.log('notificationsClick');
+    this.notificationsClick.emit();
   }
 
-  directMessagesClicked(ev) {
-    this.directMessagesClick.next(ev);
+  directMessagesClicked() {
+    console.log('dms');
+    this.directMessagesClick.emit();
   }
 
-  searchClicked(ev) {
-    this.searchClick.next(ev);
+  searchClicked() {
+    console.log('search');
+    this.searchClick.emit();
   }
 
-  popoverClicked(ev) {
-    this.popoverClick.next(ev);
+  popoverClicked() {
+    console.log('pop'); 
+    this.popoverClick.emit();
   }
 }

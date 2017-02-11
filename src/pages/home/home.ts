@@ -5,6 +5,7 @@ import { Tweet, Celeb } from '../../library/tweet';
 import {ComposePage} from '../compose/compose';
 import { SearchPage } from '../search/search';
 import { NotificationsPage } from '../notifications/notifications';
+import { StreamsPage } from '../streams/streams';
 //import * as firebase from 'firebase';
 
 @Component({
@@ -20,7 +21,7 @@ export class HomePage {
   constructor(public navCtrl: NavController, public af: AngularFire,
     public afd: AngularFireDatabase, public afm: AngularFireModule) {
       
-    this.tweets = af.database.list('/Items');
+    this.tweets = af.database.list('/Tweets');
   }
 
   getFollowersCount(obj: any) {
@@ -44,12 +45,14 @@ export class HomePage {
   }
 
   showStreams() {
-    console.log('streams');
+    this.navCtrl.push(StreamsPage);
   }
   showNotifications() { 
     this.navCtrl.push(NotificationsPage);
   }
-  showDirectMessages() { }
+  showDirectMessages() { 
+    console.log('dms');
+  }
   showSearch() { }
   showPopover() { }
 

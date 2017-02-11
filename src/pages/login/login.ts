@@ -19,7 +19,6 @@ export class LoginPage {
       provider: AuthProviders.Twitter,
       method: AuthMethods.Popup
     }).then(function (response) {
-      console.log(response);
       self.navCtrl.setRoot(HomePage);
     }).catch(function (error) {
       console.log(error);

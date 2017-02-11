@@ -1,13 +1,16 @@
 <ion-header>
   <ion-navbar color="danger">
-    <feed-header img="http://placehold.it/50" (streamsClick)="showStreams()" (notificationsClick)="showNotifications()" (directMessagesClick)="showDirectMessages()"
+    <feed-header img="http://placehold.it/50" (streamsClick)="showStreams()" 
+    (notificationsClick)="showNotifications()" (directMessagesClick)="showDirectMessages()"
       (searchClick)="showSearch()" (popoverClick)="showPopover()"> </feed-header>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-fab right bottom>
-    <button ion-fab color="primary" (click)="add()"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="primary" (click)="add()">
+      <ion-icon name="add"></ion-icon>
+    </button>
   </ion-fab>
 
   <ion-segment [(ngModel)]="segment">
@@ -26,8 +29,8 @@
   <ion-list *ngSwitchCase="feed" no-lines> 
     <tweet *ngFor="let tweet of tweets | async" avatar="http://placehold.it/50" id="1" 
         name="Rajkiran" handle="@panuganti" tweetText="{{tweet.tweetText}}" likeCount=12 
-        retweetCount=4 chatCount=3 (like)="like($event)" (retweet)="retweet($event)" (conversation)="conversation($event)" 
-        (reply)="reply($event)"> 
+        retweetCount=4 chatCount=3 (like)="like($event)" (retweet)="retweet($event)" 
+        (conversation)="conversation($event)" (reply)="reply($event)"> 
     </tweet>
   </ion-list>
 

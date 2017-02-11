@@ -1,13 +1,20 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+
+import { AngularFireModule } from 'angularfire2';
+
+// Import All Pages
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-import { AngularFireModule } from 'angularfire2';
+import { NotificationsPage } from '../pages/notifications/notifications';
+import { StreamsPage } from '../pages/streams/streams';
+import { ComposePage } from '../pages/compose/compose';
+
+// Import All Components
 import { FeedHeaderComponent } from '../components/feed-header/feed-header';
 import { ReactionComponent } from '../components/reaction/reaction';
 import { TweetComponent } from '../components/tweet/tweet';
-//import { Tweet } from '../library/tweet';
 import { CelebrityComponent } from '../components/celebrity/celebrity';
 import { TwitterTextComponent } from '../components/twitter-text/twitter-text';
 import { CelebrityReactionComponent } from '../components/celebrity-reaction/celebrity-reaction';
@@ -30,7 +37,10 @@ export const firebaseConfig = {
     TweetComponent,
     TwitterTextComponent,
     CelebrityReactionComponent,
-    CelebrityComponent
+    CelebrityComponent,
+    NotificationsPage,
+    StreamsPage,
+    ComposePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -46,7 +56,10 @@ export const firebaseConfig = {
     TweetComponent,
     TwitterTextComponent,
     CelebrityReactionComponent,
-    CelebrityComponent
+    CelebrityComponent,
+    NotificationsPage,
+    StreamsPage,
+    ComposePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

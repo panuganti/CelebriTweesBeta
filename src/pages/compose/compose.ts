@@ -1,22 +1,33 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { FirebaseListObservable, AngularFire } from 'angularfire2';
 
-/*
-  Generated class for the Compose page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-compose',
   templateUrl: 'compose.html'
 })
 export class ComposePage {
+  tweetText: string;
+  maxLength: number = 180;
+  tweets: FirebaseListObservable<any>;
+  celebtweets: FirebaseListObservable<any>;
+  usertweets: FirebaseListObservable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController,  public af: AngularFire) {
+    this.tweets = af.database.list('/Tweets');
+    this.celebtweets = af.database.list('/CelebTweets');
+    this.usertweets = af.database.list('/UserTweets');
+  }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ComposePage');
+  getLength() {
+    if (this.tweetText != undefined)
+    {
+      return this.maxLength - this.tweetText.length;
+    }
+    return this.maxLength;
+  }
+
+  postTweet() {
   }
 
 }
