@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AngularFire, FirebaseListObservable, AngularFireDatabase, AngularFireModule } from 'angularfire2';
-import { Tweet } from '../../library/tweet';
+import { Tweet, Celeb } from '../../library/tweet';
+import {ComposePage} from '../compose/compose';
+import { SearchPage } from '../search/search';
+import { NotificationsPage } from '../notifications/notifications';
+import { StreamsPage } from '../streams/streams';
 //import * as firebase from 'firebase';
 
 @Component({
@@ -10,19 +14,45 @@ import { Tweet } from '../../library/tweet';
 })
 export class HomePage {
   tweets: FirebaseListObservable<Tweet[]>;
-
+  celebs: FirebaseListObservable<Celeb[]>
   tweet: Tweet;
+  segment: string = "feed";
+
   constructor(public navCtrl: NavController, public af: AngularFire,
     public afd: AngularFireDatabase, public afm: AngularFireModule) {
       
-    this.tweets = af.database.list('/Items');
+    this.tweets = af.database.list('/Tweets');
+  }
+
+  getFollowersCount(obj: any) {
+    try {
+      return obj.length;
+    }
+    catch (e) {
+      return 0;
+    }
+  }
+
+  add() {
+    if (this.segment == "feed")
+    {
+      this.navCtrl.push(ComposePage);
+    }
+    else if (this.segment == "watchlist" || this.segment == "trending")
+    {
+      this.navCtrl.push(SearchPage);
+    }
   }
 
   showStreams() {
-    console.log('streams');
+    this.navCtrl.push(StreamsPage);
   }
-  showNotifications() { }
-  showDirectMessages() { }
+  showNotifications() { 
+    this.navCtrl.push(NotificationsPage);
+  }
+  showDirectMessages() { 
+    console.log('dms');
+  }
   showSearch() { }
   showPopover() { }
 
@@ -35,7 +65,4 @@ export class HomePage {
   reply(id: string) { }
   //#endregion tweet events
 
-  logout() {
-    this.af.auth.logout();
-  }
 }

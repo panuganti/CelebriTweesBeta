@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <h2 color="light" style="margin: 5px"> Compose </h2>
+    <ion-buttons end>
+      <span color="light"> {{getLength()}} </span>
+      <button ion-button [disabled]="getLength()<0 && getLength()==180" (click)="postTweet()" clear> 
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+    <ion-textarea class="border" rows="5" placeholder="Type your tweet here" [(ngModel)]="tweetText">
+    </ion-textarea>
+    <!-- buttons -->
+    <hr>
+    <ion-buttons>
+      <ion-item>
+        <ion-icon name="camera"> </ion-icon>
+      </ion-item>
+    </ion-buttons>
+  </ion-card>
+  <div>
+    <tweet avatar="http://placehold.it/50" name="Rajkiran" handle="@panuganti" tweetText="{{tweetText}}">
+    </tweet>
+  </div>
+
+</ion-content>

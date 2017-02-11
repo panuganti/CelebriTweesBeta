@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController} from 'ionic-angular';
 import { AngularFire, AuthMethods, AuthProviders } from 'angularfire2';
 import { HomePage } from '../home/home';
 //import * as firebase from 'firebase';
@@ -19,7 +19,6 @@ export class LoginPage {
       provider: AuthProviders.Twitter,
       method: AuthMethods.Popup
     }).then(function (response) {
-      console.log(response);
       self.navCtrl.setRoot(HomePage);
     }).catch(function (error) {
       console.log(error);
