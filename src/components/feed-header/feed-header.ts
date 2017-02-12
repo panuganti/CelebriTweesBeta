@@ -19,22 +19,18 @@ export class FeedHeaderComponent {
   }
 
   notificationsClicked() {
-    console.log('notificationsClick');
     this.notificationsClick.emit();
   }
 
   directMessagesClicked() {
-    console.log('dms');
     this.directMessagesClick.emit();
   }
 
   searchClicked() {
-    console.log('search');
     this.searchClick.emit();
   }
 
   popoverClicked() {
-    console.log('pop'); 
     this.popoverClick.emit();
   }
 }

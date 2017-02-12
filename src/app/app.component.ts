@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-//import { HomePage } from '../pages/home/home';
+import { HomePage } from '../pages/home/home';
 //import { Entity } from '../library/tweet';
 import { LoginPage } from '../pages/login/login';
 import { AngularFire } from 'angularfire2';
-import { ComposePage } from '../pages/compose/compose';
+//import { ComposePage } from '../pages/compose/compose';
 
 @Component({
   templateUrl: 'app.html'
@@ -24,7 +24,7 @@ rootPage: any;
   ngOnInit() {
     this.af.auth.subscribe(user => {
         if (user){
-        this.rootPage = ComposePage;
+        this.rootPage = HomePage;
       }
       else {
         this.rootPage = LoginPage;

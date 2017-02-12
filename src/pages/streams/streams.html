@@ -1,18 +1,24 @@
-<!--
-  Generated template for the Streams page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>streams</ion-title>
+    <ion-title>Streams</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-
+  <ion-segment [(ngModel)]="segment">
+    <ion-segment-button value="feed">
+      PEOPLE
+    </ion-segment-button>
+    <ion-segment-button value="watchlist">
+      WATCHLIST 
+    </ion-segment-button>
+    <ion-segment-button value="trending">
+      TRENDING
+    </ion-segment-button>
+    <ion-segment-button value="suggested">
+      SUGGESTED
+    </ion-segment-button>
+  </ion-segment>
 </ion-content>

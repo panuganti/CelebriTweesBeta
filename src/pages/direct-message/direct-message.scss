@@ -1,0 +1,28 @@
+page-direct-message {
+    .grayBackground {
+        background-color: #ece5dd;
+    }
+    .left {
+        float: left;
+        max-width: 80%;
+        background-color: white;
+        padding: 15px;
+    }
+    .right {
+        float: right;
+        max-width: 80%;
+        background-color: #dcf8c6;
+        padding: 15px;
+    }
+
+    .chatbar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+    .bottom_bar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+}

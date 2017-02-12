@@ -2,7 +2,7 @@
   <ion-navbar color="danger">
     <feed-header img="http://placehold.it/50" (streamsClick)="showStreams()" 
     (notificationsClick)="showNotifications()" (directMessagesClick)="showDirectMessages()"
-      (searchClick)="showSearch()" (popoverClick)="showPopover()"> </feed-header>
+      (searchClick)="showSearch()" (popoverClick)="showPopover($event)"> </feed-header>
   </ion-navbar>
 </ion-header>
 

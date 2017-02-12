@@ -18,6 +18,7 @@ import { TweetComponent } from '../components/tweet/tweet';
 import { CelebrityComponent } from '../components/celebrity/celebrity';
 import { TwitterTextComponent } from '../components/twitter-text/twitter-text';
 import { CelebrityReactionComponent } from '../components/celebrity-reaction/celebrity-reaction';
+import { NotificationComponent } from '../components/notification/notification';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyA59EnGk7BycwQjlCv5nYb4bZqLKjaZK9w",
@@ -40,7 +41,8 @@ export const firebaseConfig = {
     CelebrityComponent,
     NotificationsPage,
     StreamsPage,
-    ComposePage
+    ComposePage,
+    NotificationComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -59,7 +61,8 @@ export const firebaseConfig = {
     CelebrityComponent,
     NotificationsPage,
     StreamsPage,
-    ComposePage
+    ComposePage,
+    NotificationComponent
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
