@@ -2,7 +2,13 @@
   <ion-avatar item-left>
     <img src="{{avatar}}">
   </ion-avatar>
+  <h2>{{name}} </h2>
   <p>{{text}}</p>
   <p><small>{{time}}</small></p>
+  <ion-buttons end>
+    <button (click)="deleteRoom()">
+      <ion-icon name="subtract"> </ion-icon>
+    </button>
+  </ion-buttons>
 </ion-item>
 <hr>

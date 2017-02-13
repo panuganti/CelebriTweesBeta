@@ -1,0 +1,32 @@
+
+<ion-header >
+  <ion-navbar primary>
+      {{name}}
+  </ion-navbar>
+</ion-header>
+<ion-content #content class="grayBackground">
+  <ion-list no-lines>
+    <ion-item *ngFor="let msg of msgs | async" text-wrap class="grayBackground">
+      <div class="{{msg.position}}">
+        <span> {{msg.content}}</span>
+         <ion-note> <small> {{msg.time}} </small> </ion-note>
+      </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-item>
+      <ion-label style="margin:0px;"></ion-label>
+      <ion-input type="text" placeholder="Message.." class="chatbar"> </ion-input>
+    </ion-item>
+
+    <ion-buttons right>
+      <button ion-button icon-only style="min-width:45px;">
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

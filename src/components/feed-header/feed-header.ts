@@ -10,7 +10,7 @@ export class FeedHeaderComponent {
 @Output() notificationsClick:  EventEmitter<any> = new EventEmitter();
 @Output() directMessagesClick:  EventEmitter<any> = new EventEmitter();
 @Output() searchClick:  EventEmitter<any> = new EventEmitter();
-@Output() popoverClick:  EventEmitter<any> = new EventEmitter();
+@Output() logout:  EventEmitter<any> = new EventEmitter();
 
   constructor() {}
 
@@ -19,22 +19,18 @@ export class FeedHeaderComponent {
   }
 
   notificationsClicked() {
-    console.log('notificationsClick');
     this.notificationsClick.emit();
   }
 
   directMessagesClicked() {
-    console.log('dms');
     this.directMessagesClick.emit();
   }
 
   searchClicked() {
-    console.log('search');
     this.searchClick.emit();
   }
 
-  popoverClicked() {
-    console.log('pop'); 
-    this.popoverClick.emit();
+  logoutClicked() {
+    this.logout.emit();
   }
 }

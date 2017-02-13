@@ -10,6 +10,7 @@ import { LoginPage } from '../pages/login/login';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { StreamsPage } from '../pages/streams/streams';
 import { ComposePage } from '../pages/compose/compose';
+import { DmsPage}  from '../pages/dms/dms';
 
 // Import All Components
 import { FeedHeaderComponent } from '../components/feed-header/feed-header';
@@ -18,6 +19,7 @@ import { TweetComponent } from '../components/tweet/tweet';
 import { CelebrityComponent } from '../components/celebrity/celebrity';
 import { TwitterTextComponent } from '../components/twitter-text/twitter-text';
 import { CelebrityReactionComponent } from '../components/celebrity-reaction/celebrity-reaction';
+import { NotificationComponent } from '../components/notification/notification';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyA59EnGk7BycwQjlCv5nYb4bZqLKjaZK9w",
@@ -40,7 +42,9 @@ export const firebaseConfig = {
     CelebrityComponent,
     NotificationsPage,
     StreamsPage,
-    ComposePage
+    ComposePage,
+    NotificationComponent,
+    DmsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -59,7 +63,9 @@ export const firebaseConfig = {
     CelebrityComponent,
     NotificationsPage,
     StreamsPage,
-    ComposePage
+    ComposePage,
+    NotificationComponent,
+    DmsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })

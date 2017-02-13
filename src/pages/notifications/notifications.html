@@ -1,18 +1,14 @@
-<!--
-  Generated template for the Notifications page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>notifications</ion-title>
+  <ion-navbar color="danger">
+    <ion-title>Notifications</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-
+  <ion-list no-lines>
+  <notification *ngFor="let notification of notifications | async" 
+    avatar="https://placehold.it/50" text="notification" time="12:00"> </notification>
+  </ion-list>
 </ion-content>

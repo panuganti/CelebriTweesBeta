@@ -8,9 +8,4 @@ import { NavController} from 'ionic-angular';
 export class NotificationsPage {
 
   constructor(public navCtrl: NavController) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad NotificationsPage');
-  }
-
 }

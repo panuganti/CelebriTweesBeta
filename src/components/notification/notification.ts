@@ -1,22 +1,15 @@
-import { Component } from '@angular/core';
+import {Input, Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-/*
-  Generated class for the Notification page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'notification',
   templateUrl: 'notification.html'
 })
-export class Notification {
+export class NotificationComponent {
+@Input() avatar: string;
+@Input() text: string;
+@Input() time: Date;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Notification');
-  }
 
 }
