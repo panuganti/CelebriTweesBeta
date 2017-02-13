@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { AngularFire } from 'angularfire2';
 //import { ComposePage } from '../pages/compose/compose';
+import * as firebase from 'firebase';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,13 +23,22 @@ rootPage: any;
   }
 
   ngOnInit() {
-    this.af.auth.subscribe(user => {
-        if (user){
-        this.rootPage = HomePage;
-      }
-      else {
-        this.rootPage = LoginPage;
-      }
-    })
+    let user = firebase.auth().currentUser;
+    if (user!=null)
+    {
+      this.af.database.object('/Users/'+user.uid)
+        .subscribe((obj) => {
+          if (obj.$exists())
+          {
+            this.rootPage = HomePage;
+          }
+          else {
+            this.rootPage = LoginPage;
+          }
+        })
+    }
+    else {
+      this.rootPage = LoginPage;
+    }
   }
 }

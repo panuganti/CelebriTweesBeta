@@ -10,7 +10,7 @@ export class FeedHeaderComponent {
 @Output() notificationsClick:  EventEmitter<any> = new EventEmitter();
 @Output() directMessagesClick:  EventEmitter<any> = new EventEmitter();
 @Output() searchClick:  EventEmitter<any> = new EventEmitter();
-@Output() popoverClick:  EventEmitter<any> = new EventEmitter();
+@Output() logout:  EventEmitter<any> = new EventEmitter();
 
   constructor() {}
 
@@ -30,7 +30,7 @@ export class FeedHeaderComponent {
     this.searchClick.emit();
   }
 
-  popoverClicked() {
-    this.popoverClick.emit();
+  logoutClicked() {
+    this.logout.emit();
   }
 }

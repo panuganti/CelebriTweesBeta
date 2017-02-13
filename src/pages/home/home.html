@@ -2,7 +2,7 @@
   <ion-navbar color="danger">
     <feed-header img="http://placehold.it/50" (streamsClick)="showStreams()" 
     (notificationsClick)="showNotifications()" (directMessagesClick)="showDirectMessages()"
-      (searchClick)="showSearch()" (popoverClick)="showPopover($event)"> </feed-header>
+      (searchClick)="showSearch()" (logout)="logout()"> </feed-header>
   </ion-navbar>
 </ion-header>
 
@@ -35,7 +35,8 @@
   </ion-list>
 
   <ion-list *ngSwitchCase="watchlist">
-    <celebrity *ngFor="let celeb of celebs | async" celebImg="" celebName="" id="" 
+    <p *ngIf="getWatchlistCount(watchlist | async)==0"> You do not seem to have anyone in watchlist </p>
+    <celebrity *ngIf="getWatchlistCount(watchlist | async)>0" *ngFor="let celeb of watchlist | async" celebImg="" celebName="" id="" 
         heartCount="{{getFollowersCount(af.database.object('/Celebs/')) | async}}" 
         (watch)="addToWatchlist($event)"> </celebrity> 
   </ion-list>

@@ -10,6 +10,7 @@ import { LoginPage } from '../pages/login/login';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { StreamsPage } from '../pages/streams/streams';
 import { ComposePage } from '../pages/compose/compose';
+import { DmsPage}  from '../pages/dms/dms';
 
 // Import All Components
 import { FeedHeaderComponent } from '../components/feed-header/feed-header';
@@ -42,7 +43,8 @@ export const firebaseConfig = {
     NotificationsPage,
     StreamsPage,
     ComposePage,
-    NotificationComponent
+    NotificationComponent,
+    DmsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -62,7 +64,8 @@ export const firebaseConfig = {
     NotificationsPage,
     StreamsPage,
     ComposePage,
-    NotificationComponent
+    NotificationComponent,
+    DmsPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
