@@ -1,7 +1,7 @@
 {
-  "name": "ionic-hello-world",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "name": "CelebriTwees(Beta)",
+  "author": "Rajkiran Panuganti",
+  "homepage": "https://celebritwees.com",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
@@ -43,5 +43,5 @@
     "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [],
-  "description": "CelebriTweesBeta: An Ionic project"
+  "description": "Twitter Re-imagined for Entertainment"
 }

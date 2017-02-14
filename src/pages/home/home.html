@@ -27,6 +27,7 @@
 
 <div [ngSwitch]="segment">
   <ion-list *ngSwitchCase="feed" no-lines> 
+    <!-- ( watchlist |async) -->
     <tweet *ngFor="let tweet of tweets | async" avatar="http://placehold.it/50" id="1" 
         name="Rajkiran" handle="@panuganti" tweetText="{{tweet.tweetText}}" likeCount=12 
         retweetCount=4 chatCount=3 (like)="like($event)" (retweet)="retweet($event)" 
