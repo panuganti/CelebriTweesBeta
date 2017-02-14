@@ -13,8 +13,6 @@ export class DirectMessagePage {
   msgs: FirebaseListObservable<any>;
     @ViewChild(Content) content: Content;
   constructor(public navCtrl: NavController, public navParams: NavParams, public af: AngularFire) {
-    //let name = this.navParams.get('name');
-    let id = this.navParams.get('id');
 
 /*
     this.msgs = [
@@ -41,8 +39,6 @@ export class DirectMessagePage {
   }
 
   ionViewDidEnter() {
-    //let room_name = '';// this.af.auth.+'_'+this.id;
-    //let msgs = this.af.database.list(room_name);
     this.scrollToBottom();
   }
 }

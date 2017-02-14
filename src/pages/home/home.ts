@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, PopoverController } from 'ionic-angular';
 import { AngularFire, FirebaseListObservable, AngularFireDatabase, AngularFireModule } from 'angularfire2';
-import { Tweet, Celeb } from '../../library/tweet';
+import { Tweet } from '../../library/tweet';
 import {ComposePage} from '../compose/compose';
 import { SearchPage } from '../search/search';
 import { NotificationsPage } from '../notifications/notifications';
