@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Compose To</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-searchbar [(ngModel)]="input" [showCancelButton]="true" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+  </ion-searchbar>
+  <ion-list>
+    <button ion-item *ngFor="let user of getUsers(users | async)" (click)="compose(user)">
+      {{user}}
+    </button>
+  </ion-list>
+</ion-content>

@@ -1,7 +1,6 @@
 <ion-header>
   <ion-navbar color="danger">
-    <feed-header img="http://placehold.it/50" (streamsClick)="showStreams()" 
-    (notificationsClick)="showNotifications()" (directMessagesClick)="showDirectMessages()"
+    <feed-header img="http://placehold.it/50" (streamsClick)="showStreams()" (notificationsClick)="showNotifications()" (directMessagesClick)="showDirectMessages()"
       (searchClick)="showSearch()" (logout)="logout()"> </feed-header>
   </ion-navbar>
 </ion-header>
@@ -25,26 +24,26 @@
     </ion-segment-button>
   </ion-segment>
 
-<div [ngSwitch]="segment">
-  <ion-list *ngSwitchCase="feed" no-lines> 
-    <!-- ( watchlist |async) -->
-    <tweet *ngFor="let tweet of tweets | async" avatar="http://placehold.it/50" id="1" 
-        name="Rajkiran" handle="@panuganti" tweetText="{{tweet.tweetText}}" likeCount=12 
-        retweetCount=4 chatCount=3 (like)="like($event)" (retweet)="retweet($event)" 
-        (conversation)="conversation($event)" (reply)="reply($event)"> 
-    </tweet>
-  </ion-list>
+  <div [ngSwitch]="segment">
+    <ion-list *ngSwitchCase="feed" no-lines>
+      <p *ngIf="getWatchlistCount(watchlist | async)==0"> You do not seem to have anyone in watchlist </p>
+      <div *ngFor="let celeb of watchlist | async">
+        <tweet *ngFor="let tweet of getTweetsOfCeleb(celeb) | async" avatar="tweet.avatar" id="tweet.id" name="getUserName(tweet.uid)|async" handle="getUserHandle(tweet.uid)|async" tweetText="{{tweet.tweetText}}"
+          likeCount=getLikeCount() retweetCount=4 chatCount=3 (like)="like($event)" (retweet)="retweet($event)" (conversation)="conversation($event)"
+          (reply)="reply($event)">
+          </tweet>
+      </div>
+    </ion-list>
 
-  <ion-list *ngSwitchCase="watchlist">
-    <p *ngIf="getWatchlistCount(watchlist | async)==0"> You do not seem to have anyone in watchlist </p>
-    <celebrity *ngFor="let celeb of watchlist | async" celebImg="" celebName="" id="" 
-        heartCount="{{getFollowersCount(af.database.object('/Celebs/')) | async}}" 
-        (watch)="addToWatchlist($event)"> </celebrity> 
-  </ion-list>
+    <ion-list *ngSwitchCase="watchlist">
+      <p *ngIf="getWatchlistCount(watchlist | async)==0"> You do not seem to have anyone in watchlist </p>
+      <celebrity *ngFor="let celeb of watchlist | async" celebImg="" celebName="" id="" heartCount="{{getFollowersCount(af.database.object('/Celebs/')) | async}}"
+        (watch)="addToWatchlist($event)"> </celebrity>
+    </ion-list>
 
-  <ion-list *ngSwitchCase="trending">
-    <celebrity *ngFor="let celeb of celebs | async" celebImg="{{celeb.img}}" celebName="{{celeb.name}}" id="{{celeb.id}}" 
-        heartCount="{{getFollowersCount(af.database.object('/Celebs/')) | async}}" (watch)="addToWatchlist($event)"> </celebrity>
-  </ion-list>
-</div>
+    <ion-list *ngSwitchCase="trending">
+      <celebrity *ngFor="let celeb of celebs | async" celebImg="{{celeb.img}}" celebName="{{celeb.name}}" id="{{celeb.id}}" heartCount="{{getFollowersCount(af.database.object('/Celebs/')) | async}}"
+        (watch)="addToWatchlist($event)"> </celebrity>
+    </ion-list>
+  </div>
 </ion-content>

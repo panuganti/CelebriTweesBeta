@@ -9,15 +9,17 @@ export class DirectMessageRoomComponent {
 @Input() name: string;
 @Input() time: Date;
 @Input() avatar: string;
-@Input() room_name: string;
+@Input() roomname: string;
+@Input() notificationcount: number;
+@Input() mute: boolean;
 
-@Output() delete: EventEmitter<any> = new EventEmitter();
+@Output() delete: EventEmitter<string> = new EventEmitter();
 
   constructor() {
   }
 
   deleteRoom() {
-    this.delete.emit(this.room_name);
+    this.delete.emit(this.roomname);
   }
 }
 

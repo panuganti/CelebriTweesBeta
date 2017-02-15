@@ -11,6 +11,7 @@ import { NotificationsPage } from '../pages/notifications/notifications';
 import { StreamsPage } from '../pages/streams/streams';
 import { ComposePage } from '../pages/compose/compose';
 import { DmsPage}  from '../pages/dms/dms';
+import { ComposeDmPage } from '../pages/compose-dm/compose-dm';
 
 // Import All Components
 import { FeedHeaderComponent } from '../components/feed-header/feed-header';
@@ -22,6 +23,11 @@ import { CelebrityReactionComponent } from '../components/celebrity-reaction/cel
 import { NotificationComponent } from '../components/notification/notification';
 
 export const firebaseConfig = {
+  apiKey: "AIzaSyA59EnGk7BycwQjlCv5nYb4bZqLKjaZK9w",
+    authDomain: "celebtweetsbeta.firebaseapp.com",
+    databaseURL: "https://celebtweetsbeta.firebaseio.com",
+    storageBucket: "celebtweetsbeta.appspot.com",
+    messagingSenderId: "765679640305"
   };
 
 @NgModule({
@@ -39,7 +45,8 @@ export const firebaseConfig = {
     StreamsPage,
     ComposePage,
     NotificationComponent,
-    DmsPage
+    DmsPage,
+    ComposeDmPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -60,7 +67,8 @@ export const firebaseConfig = {
     StreamsPage,
     ComposePage,
     NotificationComponent,
-    DmsPage
+    DmsPage,
+    ComposeDmPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
