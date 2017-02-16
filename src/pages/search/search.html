@@ -1,12 +1,15 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>search</ion-title>
-  </ion-navbar>
-
+  <ion-title>Add To Watchlist</ion-title>
+  <button ion-button clear (click)="dismiss()"> Cancel </button>
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-searchbar [(ngModel)]="input" [showCancelButton]="true" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+  </ion-searchbar>
+  <ion-list>
+    <button ion-item *ngFor="let celeb of getCelebs(celebs | async)" (click)="addToWatchlist(celeb)">
+      {{user}}
+    </button>
+  </ion-list>
 </ion-content>
