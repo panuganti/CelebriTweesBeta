@@ -4,6 +4,9 @@ import { MyApp } from './app.component';
 
 import { AngularFireModule } from 'angularfire2';
 
+// Import All Services
+import { ServiceCaller } from '../providers/service-caller';
+
 // Import All Pages
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
@@ -22,7 +25,12 @@ import { CelebrityReactionComponent } from '../components/celebrity-reaction/cel
 import { NotificationComponent } from '../components/notification/notification';
 
 export const firebaseConfig = {
-    };
+    apiKey: "AIzaSyA59EnGk7BycwQjlCv5nYb4bZqLKjaZK9w",
+    authDomain: "celebtweetsbeta.firebaseapp.com",
+    databaseURL: "https://celebtweetsbeta.firebaseio.com",
+    storageBucket: "celebtweetsbeta.appspot.com",
+    messagingSenderId: "765679640305"
+  };
 
 @NgModule({
   declarations: [
@@ -62,6 +70,6 @@ export const firebaseConfig = {
     NotificationComponent,
     DmsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, ServiceCaller]
 })
 export class AppModule {}
