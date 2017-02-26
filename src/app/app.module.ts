@@ -22,7 +22,7 @@ import { CelebrityReactionComponent } from '../components/celebrity-reaction/cel
 import { NotificationComponent } from '../components/notification/notification';
 
 export const firebaseConfig = {
-  };
+    };
 
 @NgModule({
   declarations: [
