@@ -29,7 +29,10 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public af: AngularFire,
         public afd: AngularFireDatabase, public afm: AngularFireModule,
+<<<<<<< HEAD
         public sc: ServiceCaller, 
+=======
+>>>>>>> 112da1effab99f2adb2ac7564f587a4469213626
         public modalCtrl:ModalController , public popoverCtrl: PopoverController) {
     this.user = firebase.auth().currentUser;
     this.watchlist = this.af.database.list('/Watchlists/' + this.user.uid);
