@@ -14,6 +14,8 @@ import { NotificationsPage } from '../pages/notifications/notifications';
 import { StreamsPage } from '../pages/streams/streams';
 import { ComposePage } from '../pages/compose/compose';
 import { DmsPage}  from '../pages/dms/dms';
+import { ComposeDmPage } from '../pages/compose-dm/compose-dm';
+import { SearchPage } from '../pages/search/search';
 
 // Import All Components
 import { FeedHeaderComponent } from '../components/feed-header/feed-header';
@@ -23,9 +25,10 @@ import { CelebrityComponent } from '../components/celebrity/celebrity';
 import { TwitterTextComponent } from '../components/twitter-text/twitter-text';
 import { CelebrityReactionComponent } from '../components/celebrity-reaction/celebrity-reaction';
 import { NotificationComponent } from '../components/notification/notification';
+import { DirectMessageRoomComponent } from '../components/direct-message-room/direct-message-room';
 
 export const firebaseConfig = {
-  };
+ };
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ export const firebaseConfig = {
     StreamsPage,
     ComposePage,
     NotificationComponent,
-    DmsPage
+    DmsPage,
+    ComposeDmPage,
+    DirectMessageRoomComponent,
+    SearchPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -63,7 +69,10 @@ export const firebaseConfig = {
     StreamsPage,
     ComposePage,
     NotificationComponent,
-    DmsPage
+    DmsPage,
+    ComposeDmPage,
+    DirectMessageRoomComponent,
+    SearchPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, ServiceCaller]
 })

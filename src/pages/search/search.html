@@ -1,12 +1,14 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>search</ion-title>
-  </ion-navbar>
-
+  <button ion-button clear (click)="dismiss()"> Cancel </button> Add To Watchlist
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+  <ion-searchbar [(ngModel)]="input" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)" (ionClear)="onCancel($event)">
+  </ion-searchbar>
+  <ion-list>
+    <button ion-item *ngFor="let celeb of getCelebs(celebs | async, input)" (click)="addToWatchlist(celeb.id)">
+      <celebrity id="celeb.id" heartCount="celeb.followCount" celebName="celeb.name" celebImg="celeb.img"> </celebrity>
+    </button>
+  </ion-list>
 </ion-content>

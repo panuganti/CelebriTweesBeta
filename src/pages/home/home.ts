@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, PopoverController } from 'ionic-angular';
+import { NavController, PopoverController, ModalController } from 'ionic-angular';
 import { AngularFire, FirebaseListObservable, AngularFireDatabase, AngularFireModule } from 'angularfire2';
 import { Tweet } from '../../library/tweet';
 import {ComposePage} from '../compose/compose';
@@ -29,7 +29,11 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public af: AngularFire,
         public afd: AngularFireDatabase, public afm: AngularFireModule,
-        public sc: ServiceCaller, public popoverCtrl: PopoverController) {
+<<<<<<< HEAD
+        public sc: ServiceCaller, 
+=======
+>>>>>>> 112da1effab99f2adb2ac7564f587a4469213626
+        public modalCtrl:ModalController , public popoverCtrl: PopoverController) {
     this.user = firebase.auth().currentUser;
     this.watchlist = this.af.database.list('/Watchlists/' + this.user.uid);
     this.trending = this.af.database.list('/Trending');
@@ -49,6 +53,18 @@ export class HomePage {
 
   getTweets(): Observable<Tweet[]> {
     return this.sc.getFeed(this.user.uid,0);
+  }
+  
+  getUserName(uid:any) {
+    this.af.database.object('/Users/'+uid+'/name')
+  }
+
+  getUserHandle(uid:any) {
+    this.af.database.object('/Users/'+uid+'/name')
+  }
+
+  getTweetsOfCeleb(celeb: any) {
+    return this.af.database.list('/Celebs/'+celeb.id+'/tweets');
   }
 
   getWatchlistCount(list: any) {
@@ -77,7 +93,8 @@ export class HomePage {
     }
     else if (this.segment == "watchlist" || this.segment == "trending")
     {
-      this.navCtrl.push(SearchPage);
+      let watchlistModal = this.modalCtrl.create(SearchPage);
+      watchlistModal.present();
     }
   }
 
