@@ -4,6 +4,9 @@ import { MyApp } from './app.component';
 
 import { AngularFireModule } from 'angularfire2';
 
+// Import All Services
+import { ServiceCaller } from '../providers/service-caller';
+
 // Import All Pages
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
@@ -62,6 +65,6 @@ export const firebaseConfig = {
     NotificationComponent,
     DmsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, ServiceCaller]
 })
 export class AppModule {}

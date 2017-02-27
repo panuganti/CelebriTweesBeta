@@ -10,23 +10,26 @@ import { HomePopoverPage } from '../home-popover/home-popover';
 import { DmsPage } from '../dms/dms';
 import { LoginPage } from '../login/login';
 import * as firebase from 'firebase';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import { ServiceCaller } from '../../providers/service-caller';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  tweets: FirebaseListObservable<any>;
-  celebs: FirebaseListObservable<any>
+  tweets: Observable<any>;
+  celebs: Observable<any>
   tweet: Tweet;
   segment: string = "feed";
-  watchlist: FirebaseListObservable<any>;
-  trending: FirebaseListObservable<any>;
+  watchlist: Observable<any>;
+  trending: Observable<any>;
   user: any;
 
   constructor(public navCtrl: NavController, public af: AngularFire,
         public afd: AngularFireDatabase, public afm: AngularFireModule,
-                                  public popoverCtrl: PopoverController) {
+        public sc: ServiceCaller, public popoverCtrl: PopoverController) {
     this.user = firebase.auth().currentUser;
     this.watchlist = this.af.database.list('/Watchlists/' + this.user.uid);
     this.trending = this.af.database.list('/Trending');
@@ -42,6 +45,10 @@ export class HomePage {
           this.segment = 'watchlist';
         }
       })
+  }
+
+  getTweets(): Observable<Tweet[]> {
+    return this.sc.getFeed(this.user.uid,0);
   }
 
   getWatchlistCount(list: any) {
