@@ -15,6 +15,7 @@ import { StreamsPage } from '../pages/streams/streams';
 import { ComposePage } from '../pages/compose/compose';
 import { DmsPage}  from '../pages/dms/dms';
 import { ComposeDmPage } from '../pages/compose-dm/compose-dm';
+import { SearchPage } from '../pages/search/search';
 
 // Import All Components
 import { FeedHeaderComponent } from '../components/feed-header/feed-header';
@@ -27,7 +28,12 @@ import { NotificationComponent } from '../components/notification/notification';
 import { DirectMessageRoomComponent } from '../components/direct-message-room/direct-message-room';
 
 export const firebaseConfig = {
-  };
+ apiKey: "AIzaSyA59EnGk7BycwQjlCv5nYb4bZqLKjaZK9w",
+    authDomain: "celebtweetsbeta.firebaseapp.com",
+    databaseURL: "https://celebtweetsbeta.firebaseio.com",
+    storageBucket: "celebtweetsbeta.appspot.com",
+    messagingSenderId: "765679640305"
+ };
 
 @NgModule({
   declarations: [
@@ -46,7 +52,8 @@ export const firebaseConfig = {
     NotificationComponent,
     DmsPage,
     ComposeDmPage,
-    DirectMessageRoomComponent
+    DirectMessageRoomComponent,
+    SearchPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -69,7 +76,8 @@ export const firebaseConfig = {
     NotificationComponent,
     DmsPage,
     ComposeDmPage,
-    DirectMessageRoomComponent
+    DirectMessageRoomComponent,
+    SearchPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, ServiceCaller]
 })

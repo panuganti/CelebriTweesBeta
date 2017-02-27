@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, PopoverController } from 'ionic-angular';
+import { NavController, PopoverController, ModalController } from 'ionic-angular';
 import { AngularFire, FirebaseListObservable, AngularFireDatabase, AngularFireModule } from 'angularfire2';
 import { Tweet } from '../../library/tweet';
 import {ComposePage} from '../compose/compose';
@@ -29,7 +29,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public af: AngularFire,
         public afd: AngularFireDatabase, public afm: AngularFireModule,
-        public sc: ServiceCaller, public popoverCtrl: PopoverController) {
+        public sc: ServiceCaller, 
+        public modalCtrl:ModalController , public popoverCtrl: PopoverController) {
     this.user = firebase.auth().currentUser;
     this.watchlist = this.af.database.list('/Watchlists/' + this.user.uid);
     this.trending = this.af.database.list('/Trending');
@@ -89,7 +90,8 @@ export class HomePage {
     }
     else if (this.segment == "watchlist" || this.segment == "trending")
     {
-      this.navCtrl.push(SearchPage);
+      let watchlistModal = this.modalCtrl.create(SearchPage);
+      watchlistModal.present();
     }
   }
 

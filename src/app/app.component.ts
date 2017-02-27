@@ -24,12 +24,14 @@ rootPage: any;
 
   ngOnInit() {
     let user = firebase.auth().currentUser;
+    console.log(user);
     if (user!=null)
     {
       this.af.database.object('/Users/'+user.uid)
         .subscribe((obj) => {
           if (obj.$exists())
           {
+            console.log('user logged in');
             this.rootPage = HomePage;
           }
           else {
