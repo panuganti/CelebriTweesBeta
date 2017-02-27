@@ -28,11 +28,6 @@ import { NotificationComponent } from '../components/notification/notification';
 import { DirectMessageRoomComponent } from '../components/direct-message-room/direct-message-room';
 
 export const firebaseConfig = {
- apiKey: "AIzaSyA59EnGk7BycwQjlCv5nYb4bZqLKjaZK9w",
-    authDomain: "celebtweetsbeta.firebaseapp.com",
-    databaseURL: "https://celebtweetsbeta.firebaseio.com",
-    storageBucket: "celebtweetsbeta.appspot.com",
-    messagingSenderId: "765679640305"
  };
 
 @NgModule({
