@@ -50,6 +50,18 @@ export class HomePage {
   getTweets(): Observable<Tweet[]> {
     return this.sc.getFeed(this.user.uid,0);
   }
+  
+  getUserName(uid:any) {
+    this.af.database.object('/Users/'+uid+'/name')
+  }
+
+  getUserHandle(uid:any) {
+    this.af.database.object('/Users/'+uid+'/name')
+  }
+
+  getTweetsOfCeleb(celeb: any) {
+    return this.af.database.list('/Celebs/'+celeb.id+'/tweets');
+  }
 
   getWatchlistCount(list: any) {
     try {

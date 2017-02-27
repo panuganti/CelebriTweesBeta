@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { ModalController, NavController} from 'ionic-angular';
+import { ComposeDmPage } from '../compose-dm/compose-dm';
 
 @Component({
   selector: 'page-dms',
@@ -7,6 +8,11 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class DmsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {}
+
+  composedm() {
+    let modal = this.modalCtrl.create(ComposeDmPage);
+    modal.present();
+  }
 
 }

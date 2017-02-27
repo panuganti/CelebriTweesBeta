@@ -1,7 +1,6 @@
 <ion-header>
   <ion-navbar color="danger">
-    <feed-header img="http://placehold.it/50" (streamsClick)="showStreams()" 
-    (notificationsClick)="showNotifications()" (directMessagesClick)="showDirectMessages()"
+    <feed-header img="http://placehold.it/50" (streamsClick)="showStreams()" (notificationsClick)="showNotifications()" (directMessagesClick)="showDirectMessages()"
       (searchClick)="showSearch()" (logout)="logout()"> </feed-header>
   </ion-navbar>
 </ion-header>
@@ -45,4 +44,5 @@
         heartCount="{{celeb.followers}}" (watch)="addToWatchlist($event)"> </celebrity>
   </ion-list>
 </div>
+
 </ion-content>
